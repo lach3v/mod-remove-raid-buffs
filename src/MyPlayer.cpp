@@ -8,6 +8,24 @@
 #include "Chat.h"
 
 // Add player scripts
+//class MyPlayer : public PlayerScript
+//{
+//public:
+//    MyPlayer() : PlayerScript("MyPlayer") { }
+//
+//    void OnUpdateZone(Player* player) override
+//    {
+//        if (sConfigMgr->GetOption<bool>("MyModule.Enable", true))
+//        {
+//            if (!player->GetMap()->IsRaid())
+//            {
+////                player->RemoveAura(75447);
+//                ChatHandler(player->GetSession()).SendSysMessage("Test module working.");
+//            }
+//        }
+//    }
+//};
+
 class MyPlayer : public PlayerScript
 {
 public:
@@ -15,14 +33,7 @@ public:
 
     void OnUpdateZone(Player* player) override
     {
-        if (sConfigMgr->GetOption<bool>("MyModule.Enable", true))
-        {
-            if (!player->GetMap()->IsRaid())
-            {
-//                player->RemoveAura(75447);
-                ChatHandler(player->GetSession()).SendSysMessage("Test module working.");
-            }
-        }
+         ChatHandler(player->GetSession()).SendSysMessage("Test module working.");
     }
 };
 

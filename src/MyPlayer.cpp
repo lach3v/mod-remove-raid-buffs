@@ -19,7 +19,8 @@ public:
         {
             if (!player->GetMap()->IsRaid())
             {
-                player->RemoveAura(75447);
+//                player->RemoveAura(75447);
+                ChatHandler(player->GetSession()).SendSysMessage("Test module working.");
             }
         }
     }

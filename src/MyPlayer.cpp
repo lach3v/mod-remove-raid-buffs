@@ -17,7 +17,13 @@ public:
     {
         if (sConfigMgr->GetOption<bool>("MyModule.Enable", false))
         {
-            ChatHandler(player->GetSession()).SendSysMessage("Hello World from Skeleton-Module!");
+            void OnMapChanged(Player* player) override
+            {
+                if (!player->GetMap()->IsRaid())
+                {
+                    player->RemoveAura(75447);
+                }
+            }
         }
     }
 };

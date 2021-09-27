@@ -15,7 +15,7 @@ public:
 
     void OnMapChanged(Player* player) override
     {
-        if (sConfigMgr->GetOption<bool>("MyModule.Enable", false) && !player->GetMap()->IsRaid())
+        if (sConfigMgr->GetOption<bool>("MyModule.Enable", true) && !player->GetMap()->IsRaid())
         {
             player->RemoveAura(75447);
         }

@@ -15,7 +15,7 @@
 //
 //    void OnUpdateZone(Player* player) override
 //    {
-//        if (sConfigMgr->GetOption<bool>("MyModule.Enable", true))
+//        if (sConfigMgr->GetOption<bool>("MyModule.Enable", 1))
 //        {
 //            if (!player->GetMap()->IsRaid())
 //            {

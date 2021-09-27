@@ -13,20 +13,28 @@ class MyPlayer : public PlayerScript
 public:
     MyPlayer() : PlayerScript("MyPlayer") { }
 
-    void OnLogin(Player* player) override
+    void OnMapChanged(Player* player) override
     {
-        if (sConfigMgr->GetOption<bool>("MyModule.Enable", false))
+        if (sConfigMgr->GetOption<bool>("MyModule.Enable", false) && !player->GetMap()->IsRaid())
         {
-            void OnMapChanged(Player* player) override
-            {
-                if (!player->GetMap()->IsRaid())
-                {
-                    player->RemoveAura(75447);
-                }
-            }
+            player->RemoveAura(75447);
         }
     }
 };
+//    void OnLogin(Player* player) override
+//    {
+//        if (sConfigMgr->GetOption<bool>("MyModule.Enable", false))
+//        {
+//            void OnMapChanged(Player* player) override
+//            {
+//                if (!player->GetMap()->IsRaid())
+//                {
+//                    player->RemoveAura(75447);
+//                }
+//            }
+//        }
+//    }
+//};
 
 // Add all scripts in one
 void AddMyPlayerScripts()
